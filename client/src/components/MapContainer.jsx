@@ -1,5 +1,5 @@
 import React from "react";
-import {Map, GoogleApiWrapper } from 'google-maps-react';
+import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import MAPS_API_KEY from "./../config.js";
 
 
@@ -12,9 +12,31 @@ class MapContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: null
+            showingInfoWindow: false,
+            activeMarker: {},
+            selectedPlace: {}
+        }
+        this.onMarkerClick = this.onMarkerClick.bind(this);
+        this.onClose = this.onClose.bind(this);
+    }
+    onMarkerClick (props, marker, e){
+        this.setState({
+            selectedPlace: props,
+            activeMarker: marker,
+            showingInfoWindow: true        
+        });
+
+    } 
+        
+    onClose (props) {
+        if(this.state.showingInfoWindow) {
+            this.setState({
+                showingInfoWindow: false,
+                activeMarker: null
+            });
         }
     }
+
     render() {
         return (
             <div> 
@@ -27,7 +49,20 @@ class MapContainer extends React.Component {
                         lat: -1.2884,
                         lng: 36.8233
                     }}
-                />
+                >
+                <Marker onClick = {this.onMarkerClick}
+                    name = {'Kenyatta International Convention Centre'
+                }/>
+                <InfoWindow
+                    marker = {this.state.activeMarker}
+                    visible = {this.state.showingInfoWindow}
+                    onclose = {this.onClose}
+                >
+                    <div>
+                        <h4>{this.state.selectedPlace.name}</h4>
+                    </div>
+                </InfoWindow>
+                </Map>
             </div>
         )
     }
