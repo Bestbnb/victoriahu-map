@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS map;
 CREATE TABLE map (
   id INTEGER NOT NULL AUTO_INCREMENT,
   name VARCHAR(50),
-  lat INTEGER,
-  lng INTEGER,
+  lat DECIMAL(10, 6),
+  lng DECIMAL(10, 6),
   PRIMARY KEY (id)
 );
 
@@ -17,8 +17,8 @@ DROP TABLE IF EXISTS recommendations;
 CREATE TABLE recommendations (
   rec_id INTEGER,
   name VARCHAR(50),
-  lat INTEGER,
-  lng INTEGER,
+  lat DECIMAL,
+  lng DECIMAL,
   url VARCHAR(50),
   stars INTEGER,
   label INTEGER,
