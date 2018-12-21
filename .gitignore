@@ -24,3 +24,5 @@ coverage
 build/
 dist/
 
+## API keys ##
+/client/src/config.js
