@@ -14,11 +14,36 @@ class MapContainer extends React.Component {
         this.state = {
             showingInfoWindow: false,
             activeMarker: {},
-            selectedPlace: {}
+            selectedPlace: {}, 
+            lat: null,
+            lng: null, 
+            name: '',
         }
         this.onMarkerClick = this.onMarkerClick.bind(this);
         this.onClose = this.onClose.bind(this);
     }
+    componentDidMount() {
+        var myHeaders = new Headers();
+        console.log("mounted");
+        fetch('/map', 
+         { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' }
+               )
+        .then(function(response) {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data[0]);
+            this.setState({
+                name: data.name,
+                lat: data.lat,
+                lng: data.lng
+            })
+        })
+    }
+
     onMarkerClick (props, marker, e){
         this.setState({
             selectedPlace: props,
@@ -46,12 +71,12 @@ class MapContainer extends React.Component {
                     zoom = {14}
                     style = {mapStyles}
                     initialCenter={{
-                        lat: -1.2884,
-                        lng: 36.8233
+                        lat: this.state.lat,
+                        lng: this.state.lng
                     }}
                 >
                 <Marker onClick = {this.onMarkerClick}
-                    name = {'Kenyatta International Convention Centre'
+                    name = {this.state.name
                 }/>
                 <InfoWindow
                     marker = {this.state.activeMarker}
