@@ -37,10 +37,11 @@ class MapContainer extends React.Component {
         .then((data) => {
             console.log(data[0]);
             this.setState({
-                name: data.name,
-                lat: data.lat,
-                lng: data.lng
+                name: data[0].name,
+                lat: data[0].lat,
+                lng: data[0].lng
             })
+            console.log(this.state);
         })
     }
 
