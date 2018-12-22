@@ -64,6 +64,7 @@ class MapContainer extends React.Component {
     }
 
     render() {
+        console.log("adasdasd", this.state);
         return (
             <div> 
                 <div>This is the map component.</div>
@@ -71,7 +72,7 @@ class MapContainer extends React.Component {
                     google={this.props.google} 
                     zoom = {14}
                     style = {mapStyles}
-                    initialCenter={{
+                    defaultCenter={{
                         lat: this.state.lat,
                         lng: this.state.lng
                     }}
@@ -95,5 +96,5 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: MAPS_API_KEY.token
+    apiKey: (MAPS_API_KEY.token)
 })(MapContainer);
