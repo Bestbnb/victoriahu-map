@@ -10,19 +10,22 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "seed": "node_modules/.bin/knex seed:run"
   },
   "dependencies": {
     "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "google-maps-react": "^2.0.2",
     "knex": "^0.16.3",
     "mysql": "^2.16.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "reactstrap": "^6.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

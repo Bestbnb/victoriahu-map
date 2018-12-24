@@ -24,18 +24,18 @@ let createRecord = (knex, id) => {
   return knex('map').insert({
     id,
     name: faker.internet.userName(),
-    lat: faker.random.number({
-      'min': 41.89193,
-      'max': 41.89293, 
-      'precision': 0.0001
-    }),
-    lng: faker.random.number({
-      'min': 12.51133,
-      'max': 12.51153, 
-      'precision': 0.0001
-    })
-    // lat: faker.address.latitude(),
-    // lng: faker.address.longitude()
+    // lat: faker.random.number({
+    //   'min': 41.89103,
+    //   'max': 41.89293, 
+    //   'precision': 0.0001
+    // }),
+    // lng: faker.random.number({
+    //   'min': 12.51133,
+    //   'max': 12.51353, 
+    //   'precision': 0.0001
+    // })
+    lat: faker.address.latitude(),
+    lng: faker.address.longitude()
   })
 }
 

@@ -15,12 +15,13 @@ class MapContainer extends React.Component {
             showingInfoWindow: false,
             activeMarker: {},
             selectedPlace: {}, 
-            lat: null,
-            lng: null, 
+            lat: 0,
+            lng: 0, 
             name: '',
         }
         this.onMarkerClick = this.onMarkerClick.bind(this);
         this.onClose = this.onClose.bind(this);
+        this.fetchPlaces = this.fetchPlaces.bind(this);
     }
     componentDidMount() {
         var myHeaders = new Headers();
@@ -62,22 +63,31 @@ class MapContainer extends React.Component {
             });
         }
     }
+    
+    fetchPlaces() {
+        console.log("this is working I like oat milk");
+    }
 
     render() {
         console.log("adasdasd", this.state);
+        let lat = this.state.lat;
+        let lng = this.state.lng;
         return (
             <div> 
                 <div>This is the map component.</div>
                 <Map 
                     google={this.props.google} 
+                    onready = {this.fetchPlaces}
                     zoom = {14}
                     style = {mapStyles}
-                    defaultCenter={{
-                        lat: this.state.lat,
-                        lng: this.state.lng
+                    center={{
+                        lat: lat,
+                        lng: lng
                     }}
                 >
-                <Marker onClick = {this.onMarkerClick}
+                <Marker 
+                    position = {{lat: lat, lng: lng}} 
+                    onClick = {this.onMarkerClick}
                     name = {this.state.name
                 }/>
                 <InfoWindow
@@ -96,5 +106,5 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: (MAPS_API_KEY.token)
+    apiKey: 'AIzaSyBqt3OYrRJ-JRvZHID3x-9r2hQCijDFebk'
 })(MapContainer);
