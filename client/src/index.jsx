@@ -1,13 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MapContainer from "./components/MapContainer.jsx";
-import Recommendations from "./components/Recommendations.jsx";
-import WebFont from 'webfontloader';
+import App from "./components/App.jsx";
 
-WebFont.load({
-    google: {
-        families: ['Varela Round', 'sans-serif']
-    }
-})
-
-ReactDOM.render(<div><Recommendations/> <MapContainer /> </div>, document.getElementById('map'));
+ReactDOM.render(<div><App /> </div>, document.getElementById('map'));

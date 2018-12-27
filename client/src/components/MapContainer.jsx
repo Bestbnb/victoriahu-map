@@ -2,15 +2,15 @@ import React from "react";
 import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import MAPS_API_KEY from "./../config.js";
 
-
 const mapStyles = {
-    width: '60%',
+    width: '45%',
     height: '50%'
 };
 
-const fontStyle = {
-    font: 'Varela Round'
-}
+
+// const fontStyle = {
+//     font-family: Arial
+// }
 
 class MapContainer extends React.Component {
     constructor(props) {
@@ -78,7 +78,7 @@ class MapContainer extends React.Component {
         let lng = this.state.lng;
         return (
             <div> 
-                <div style = {fontStyle}>Exact location information is provided after a booking is confirmed.</div>
+                <div>Exact location information is provided after a booking is confirmed.</div>
                 <Map 
                     google={this.props.google} 
                     onready = {this.fetchPlaces}

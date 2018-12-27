@@ -18,7 +18,12 @@ module.exports = {
             presets: ['@babel/preset-react', '@babel/preset-env']
         }
         }
-      }, {
+      }, 
+      { 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+        loader: 'url-loader?limit=100000' 
+      },
+      {
           test: /\.css$/,
           loader: 'style-loader!css-loader?modules',
           include: /flexboxgrid/
