@@ -8,8 +8,11 @@ class Recommendations extends React.Component {
             background: "green"
         }
         return (
+            <div>
+            <div id = 'title'><title>Recommendations</title></div>
             <Grid fluid>
                 <Row>
+                    
                     <Col xs = {6} md = {3} style = {style}>
                     <img src="https://images.offthebeatinbudapest.com/3/f/3/5/c/3f35cfc7f05686f0f70be66ae04376c2fe963992-krizia-restaurant-budapest-24.jpeg"></img>
                     <p></p>
@@ -25,6 +28,7 @@ class Recommendations extends React.Component {
                     </Col>
                 </Row>
             </Grid>
+            </div>
         )
     }
 }
