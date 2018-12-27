@@ -4,9 +4,13 @@ import MAPS_API_KEY from "./../config.js";
 
 
 const mapStyles = {
-    width: '40%',
-    height: '60%'
+    width: '60%',
+    height: '50%'
 };
+
+const fontStyle = {
+    font: 'Varela Round'
+}
 
 class MapContainer extends React.Component {
     constructor(props) {
@@ -74,7 +78,7 @@ class MapContainer extends React.Component {
         let lng = this.state.lng;
         return (
             <div> 
-                <div>This is the map component.</div>
+                <div style = {fontStyle}>Exact location information is provided after a booking is confirmed.</div>
                 <Map 
                     google={this.props.google} 
                     onready = {this.fetchPlaces}
@@ -100,6 +104,7 @@ class MapContainer extends React.Component {
                     </div>
                 </InfoWindow>
                 </Map>
+                
             </div>
         )
     }
