@@ -7,19 +7,20 @@ export default class Image extends Component {
       'fill': 'cover',
       'fit': 'contain'
     };
-    let size = modes[mode] || 'contain';
+    let size = modes[mode] || 'cover';
 
     let defaults = {
-      height: height || 200,
-      width: width || 300,
-      backgroundColor: 'gray'
+      height: height || 225,
+      width: width || 325,
+      backgroundColor: 'gray',
+      borderRadius: '5px'
     };
 
     let important = {
       backgroundImage: `url("${src}")`,
       backgroundSize: size,
       backgroundPosition: 'center center',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
     };
 
     return <div {...props} style={{...defaults, ...style, ...important}} />
