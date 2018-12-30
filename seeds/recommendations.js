@@ -42,9 +42,9 @@ let createRecord = (knex, rec_id) => {
     }),
     url: faker.internet.url(),
     stars: faker.random.number({
-        'min': 1,
-        'max': 5,
-        'precision': 1
+        'min': 1.0,
+        'max': 5.0,
+        'precision': 0.1
     }),
     color: faker.internet.color(),
     map_id: faker.random.number({

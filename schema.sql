@@ -22,7 +22,7 @@ CREATE TABLE recommendations (
   lat DECIMAL(10, 6),
   lng DECIMAL(10, 6),
   url VARCHAR(50),
-  stars INTEGER,
+  stars DECIMAL(2,1),
   label INTEGER,
   color VARCHAR(50),
   map_id INTEGER,
