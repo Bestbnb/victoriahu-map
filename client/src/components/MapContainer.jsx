@@ -1,6 +1,5 @@
 import React from "react";
 import {Map, GoogleApiWrapper, InfoWindow, Marker, Polygon} from 'google-maps-react';
-import MAPS_API_KEY from "./../config.js";
 // import Circle from 'google-maps-react';
 // import Circle from "react-google-maps";
 
