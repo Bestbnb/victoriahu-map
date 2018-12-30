@@ -58,10 +58,17 @@ class Recommendations extends React.Component {
             marginTop: '420px',
             padding: '10px'
         }
+        const fontStyle = {
+            fontSize: 22,
+            fontWeight: 'bold',
+            lineHeight: 5
+            
+        }
+
         return (
             <div style = {style}>
             <div id = 'title'><title>Recommendations</title></div>
-            <div>Top Rated Restaurants Nearby</div>
+            <div style = {fontStyle}>Top Rated Restaurants Nearby</div>
             <Grid fluid>
                 <Row>
                     {this.state.arr.map(rec => (
