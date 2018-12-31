@@ -9,13 +9,19 @@ class Description extends React.Component {
     }
     
     render() {
+        var starStyle = {
+            width: this.props.stars/5 * 100
+        }
         return(
             <div>
                 {this.props.name}
                 <br></br>
                 {this.props.dollars}
                 <br></br>
-                {this.props.stars} stars
+                <div className="star-ratings-css">
+                    <div className="star-ratings-css-top" style={starStyle}><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                    <div className="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
             </div>
             
         )

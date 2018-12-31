@@ -61,12 +61,12 @@ class Recommendations extends React.Component {
         const fontStyle = {
             fontSize: 22,
             fontWeight: 'bold',
-            lineHeight: 5
-            
+            lineHeight: 5,
+            marginLeft: '15px'
         }
 
         return (
-            <div style = {style}>
+            <div style = {style} className = "recComponent">
             <div id = 'title'><title>Recommendations</title></div>
             <div style = {fontStyle}>Top Rated Restaurants Nearby</div>
             <Grid fluid>
