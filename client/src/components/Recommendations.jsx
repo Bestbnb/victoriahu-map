@@ -11,7 +11,7 @@ class Recommendations extends React.Component {
             rec1: {},
             rec2: {},
             rec3: {},
-            rec4: {}, 
+            // rec4: {}, 
             arr: []
         }
         this.createDollars = this.createDollars.bind(this);
@@ -35,8 +35,8 @@ class Recommendations extends React.Component {
                 rec1: data[0],
                 rec2: data[1],
                 rec3: data[2],
-                rec4: data[3],
-                arr: [data[0], data[1], data[2], data[3]]
+                // rec4: data[3],
+                arr: [data[0], data[1], data[2]]
             })
             console.log("RECOMMENDATIONS $$$$$$$$$$$$$$$$", this.state);
         })
@@ -72,7 +72,7 @@ class Recommendations extends React.Component {
             <Grid fluid>
                 <Row>
                     {this.state.arr.map(rec => (
-                        <Col xs = {6} md = {3}>
+                        <Col xs = {6} md = {4}>
                         <Image src = {rec.image}/>
                         <br></br>
                         <Description name = {rec.name} dollars = {this.createDollars(rec.dollars)} stars = {rec.stars}/>

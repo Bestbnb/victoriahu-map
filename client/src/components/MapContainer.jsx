@@ -4,8 +4,8 @@ import {Map, GoogleApiWrapper, InfoWindow, Marker, Polygon} from 'google-maps-re
 // import Circle from "react-google-maps";
 
 const mapStyles = {
-    width: '30%',
-    height: '30%', 
+    width: '45%',
+    height: '50%', 
 };
 
 
