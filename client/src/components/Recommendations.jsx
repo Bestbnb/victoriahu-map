@@ -73,6 +73,7 @@ class Recommendations extends React.Component {
                 <Row>
                     {this.state.arr.map(rec => (
                         <Col xs = {6} md = {4}>
+                        <div className = "heart"><i class="far fa-heart"></i></div>
                         <Image src = {rec.image}/>
                         <br></br>
                         <Description name = {rec.name} dollars = {this.createDollars(rec.dollars)} stars = {rec.stars}/>
