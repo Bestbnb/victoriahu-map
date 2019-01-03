@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 const path = require('path');
 const db = require('./../db/index.js');
 
-app.use(express.static(path.join(__dirname, './../client/dist/')));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, './../client/dist/index.html')));
+app.use(express.static(path.join(__dirname, './../client/dist/public/')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, './../client/dist/public/index.html')));
+
+app.get('/render', (req, res) => {
+    res.sendFile(path.join(__dirname, './../client/dist/public'));
+})
 
 app.get('/map', (req, res) => {
     var random = Math.floor(Math.random() * 100) + 1  

@@ -20,8 +20,8 @@ class MapContainer extends React.Component {
             lng: 0, 
             name: '',
         }
-        // this.onMarkerClick = this.onMarkerClick.bind(this);
-        // this.onClose = this.onClose.bind(this);
+        this.onMarkerClick = this.onMarkerClick.bind(this);
+        this.onClose = this.onClose.bind(this);
         // this.initDraggableCircle = this.initDraggableCircle.bind(this);
     }
     componentDidMount() {
@@ -47,23 +47,23 @@ class MapContainer extends React.Component {
         })
     }
 
-    // onMarkerClick (props, marker, e){
-    //     this.setState({
-    //         selectedPlace: props,
-    //         activeMarker: marker,
-    //         showingInfoWindow: true        
-    //     });
+    onMarkerClick (props, marker, e){
+        this.setState({
+            selectedPlace: props,
+            activeMarker: marker,
+            showingInfoWindow: true        
+        });
 
-    // } 
+    } 
         
-    // onClose (props) {
-    //     if(this.state.showingInfoWindow) {
-    //         this.setState({
-    //             showingInfoWindow: false,
-    //             activeMarker: null
-    //         });
-    //     }
-    // }
+    onClose (props) {
+        if(this.state.showingInfoWindow) {
+            this.setState({
+                showingInfoWindow: false,
+                activeMarker: null
+            });
+        }
+    }
 
     // initDraggableCircle({ map, maps }) {
     //     let circle = new maps.Circle({
@@ -79,114 +79,121 @@ class MapContainer extends React.Component {
     //     });
     //     maps.event.addListener(circle, 'drag', this.onCircleDragged);
     //   }
-      render() {
-        console.log("adasdasd", this.state);
-            let lat = this.state.lat;
-            let lng = this.state.lng;
-
-        const triangleCoords = [
-          {lat: lat, lng: lng},
-          {lat: lat - .01, lng: lng + .01},
-          {lat: lat + .01, lng: lng + .01},
-          {lat: lat, lng: lng}
-        ];
-       
-        // {lat: 25.774, lng: -80.190},
-        // {lat: 18.466, lng: -66.118},
-        // {lat: 32.321, lng: -64.757},
-        // {lat: 25.774, lng: -80.190}
-        return(
-          <Map google={this.props.google} className = "map"
-              className={'map'}
-              style = {mapStyles}
-                center={{
-                        lat: lat,
-                        lng: lng, 
-                }}
-              zoom={14}>
-              <Polygon
-                paths={triangleCoords}
-                strokeColor="#0000FF"
-                strokeOpacity={0.8}
-                strokeWeight={2}
-                fillColor="#0000FF"
-                fillOpacity={0.35} />
-          </Map>
-        )
-      }
-    
-    // render() {
+    //   render() {
     //     console.log("adasdasd", this.state);
-    //     let lat = this.state.lat;
-    //     let lng = this.state.lng;
-    //     const coords = { lat: lat, lng: lng };
-    // const triangleCoords = [
-    //     {lat: 25.774, lng: -80.190},
-    //     {lat: 18.466, lng: -66.118},
-    //     {lat: 32.321, lng: -64.757},
-    //     {lat: 25.774, lng: -80.190}
-    //   ];
-    //     return (
-    //         <div> 
-    //             <Map 
-    //                 className = {'map'}
-    //                 google={this.props.google} 
-    //                 zoom = {14}
-    //                 style = {mapStyles}
-    //                 center={{
+    //         let lat = this.state.lat;
+    //         let lng = this.state.lng;
+
+    //     const triangleCoords = [
+    //       {lat: lat, lng: lng},
+    //       {lat: lat - .01, lng: lng + .01},
+    //       {lat: lat + .01, lng: lng + .01},
+    //       {lat: lat, lng: lng}
+    //     ];
+       
+    //     // {lat: 25.774, lng: -80.190},
+    //     // {lat: 18.466, lng: -66.118},
+    //     // {lat: 32.321, lng: -64.757},
+    //     // {lat: 25.774, lng: -80.190}
+    //     return(
+    //       <Map google={this.props.google} className = "map"
+    //           className={'map'}
+    //           style = {mapStyles}
+    //             center={{
     //                     lat: lat,
     //                     lng: lng, 
-    //                     // position: 'relative'
-    //                 }}
-    //                 onGoogleApiLoaded={this.initDraggableCircle}
-
-    //                 // onGoogleApiLoaded={({map, maps}) =>
-    //                 // new google.maps.Circle({
-    //                 // strokeColor: '#FF0000',
-    //                 // strokeOpacity: 0.8,
-    //                 // strokeWeight: 2,
-    //                 // fillColor: '#FF0000',
-    //                 // fillOpacity: 0.3,
-    //                 // map,
-    //                 // center: {coords},
-    //                 // radius: 275,
-    //                 // })}
-    //                 // layerTypes={['TransitLayer']}
-    //             >
-    //             <Marker 
-    //                 position = {{lat: lat, lng: lng}} 
-    //                 onClick = {this.onMarkerClick}
-    //                 name = {this.state.name
-    //             }/>
-    //              {/* <Circle
-    //                 radius={1200}
-    //                 center={coords}
-    //                 onMouseover={() => console.log('mouseover')}
-    //                 onClick={() => console.log('click')}
-    //                 onMouseout={() => console.log('mouseout')}
-    //                 strokeColor='transparent'
-    //                 strokeOpacity={1}
-    //                 strokeWeight={5}
-    //                 fillColor='#FF0000'
-    //                 fillOpacity={0.7}
-    //                 style = {mapStyles}
-    //             /> */}
-                
-    //             <InfoWindow
-    //                 marker = {this.state.activeMarker}
-    //                 visible = {this.state.showingInfoWindow}
-    //                 onclose = {this.onClose}
-    //             >
-    //                 <div style = {divStyle}>
-    //                     <h4>{this.state.selectedPlace.name}</h4>
-    //                 </div>
-    //             </InfoWindow>
-    //             </Map>
-    //             <div>Exact location information is provided after a booking is confirmed.</div>
-
-    //         </div>
+    //             }}
+    //           zoom={14}>
+    //           <Polygon
+    //             paths={triangleCoords}
+    //             strokeColor="#0000FF"
+    //             strokeOpacity={0.8}
+    //             strokeWeight={2}
+    //             fillColor="#0000FF"
+    //             fillOpacity={0.35} />
+    //       </Map>
     //     )
-    // }
+    //   }
+    
+    render() {
+        console.log("adasdasd", this.state);
+        let lat = this.state.lat;
+        let lng = this.state.lng;
+        const coords = { lat: lat, lng: lng };
+    const triangleCoords = [
+        {lat: 25.774, lng: -80.190},
+        {lat: 18.466, lng: -66.118},
+        {lat: 32.321, lng: -64.757},
+        {lat: 25.774, lng: -80.190}
+      ];
+      let blueCircle = {
+        // url: './../../dist/public/icon.png',
+        url: 'https://library.kissclipart.com/20180901/zhe/kissclipart-blue-donut-transparent-background-clipart-donuts-bb43de4b64e5a5f9.jpg',
+        // url: 'https://img.freepik.com/free-vector/blue-wavy-forms-on-a-transparent-background_1035-6744.jpg?size=338&ext=jpghttps://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Blue_circle_for_diabetes.svg/1024px-Blue_circle_for_diabetes.svg.png',
+      };
+    //   blueCircle.size = new google.maps.Size(100, 100);
+        return (
+            <div> 
+                <Map 
+                    className = {'map'}
+                    google={this.props.google} 
+                    zoom = {14}
+                    style = {mapStyles}
+                    center={{
+                        lat: lat,
+                        lng: lng, 
+                        // position: 'relative'
+                    }}
+                    onGoogleApiLoaded={this.initDraggableCircle}
+
+                    // onGoogleApiLoaded={({map, maps}) =>
+                    // new google.maps.Circle({
+                    // strokeColor: '#FF0000',
+                    // strokeOpacity: 0.8,
+                    // strokeWeight: 2,
+                    // fillColor: '#FF0000',
+                    // fillOpacity: 0.3,
+                    // map,
+                    // center: {coords},
+                    // radius: 275,
+                    // })}
+                    // layerTypes={['TransitLayer']}
+                >
+                <Marker 
+                    position = {{lat: lat, lng: lng}} 
+                    onClick = {this.onMarkerClick}
+                    name = {this.state.name}
+                    icon = {blueCircle}
+                    />
+                 {/* <Circle
+                    radius={1200}
+                    center={coords}
+                    onMouseover={() => console.log('mouseover')}
+                    onClick={() => console.log('click')}
+                    onMouseout={() => console.log('mouseout')}
+                    strokeColor='transparent'
+                    strokeOpacity={1}
+                    strokeWeight={5}
+                    fillColor='#FF0000'
+                    fillOpacity={0.7}
+                    style = {mapStyles}
+                /> */}
+                
+                <InfoWindow
+                    marker = {this.state.activeMarker}
+                    visible = {this.state.showingInfoWindow}
+                    onclose = {this.onClose}
+                >
+                    <div>
+                        <h4>{this.state.selectedPlace.name}</h4>
+                    </div>
+                </InfoWindow>
+                </Map>
+                <div>Exact location information is provided after a booking is confirmed.</div>
+
+            </div>
+        )
+    }
 }
 
 export default GoogleApiWrapper({
