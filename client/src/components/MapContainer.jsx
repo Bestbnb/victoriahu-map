@@ -128,10 +128,11 @@ class MapContainer extends React.Component {
       ];
       let blueCircle = {
         // url: './../../dist/public/icon.png',
-        url: 'https://library.kissclipart.com/20180901/zhe/kissclipart-blue-donut-transparent-background-clipart-donuts-bb43de4b64e5a5f9.jpg',
+        url: 'https://i.imgur.com/ZGwFJce.png',
+        // url: 'https://cdn4.iconfinder.com/data/icons/blue-real-estate/64/Real_Estate_Loan_House-09-512.png',
         // url: 'https://img.freepik.com/free-vector/blue-wavy-forms-on-a-transparent-background_1035-6744.jpg?size=338&ext=jpghttps://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Blue_circle_for_diabetes.svg/1024px-Blue_circle_for_diabetes.svg.png',
       };
-    //   blueCircle.size = new google.maps.Size(100, 100);
+      blueCircle.size = new google.maps.Size(100, 100);
         return (
             <div> 
                 <Map 
