@@ -15,12 +15,14 @@ CREATE TABLE map (
 DROP TABLE IF EXISTS recommendations;
 		
 CREATE TABLE recommendations (
-  rec_id INTEGER,
+  rec_id INTEGER NOT NULL AUTO_INCREMENT,
   name VARCHAR(50),
-  lat DECIMAL,
-  lng DECIMAL,
+  image VARCHAR(100),
+  dollars INTEGER,
+  lat DECIMAL(10, 6),
+  lng DECIMAL(10, 6),
   url VARCHAR(50),
-  stars INTEGER,
+  stars DECIMAL(2,1),
   label INTEGER,
   color VARCHAR(50),
   map_id INTEGER,
