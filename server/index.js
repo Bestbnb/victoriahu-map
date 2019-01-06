@@ -32,6 +32,7 @@ app.get('/recommendations', (req, res) => {
         if (err) {
             throw err;
         }
+        console.log("THIS IS WHERE THE PROBLEM IS", data);
         res.send(data);
     })
 })
